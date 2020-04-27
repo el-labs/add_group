@@ -13,7 +13,9 @@ class UntitledTestCase(unittest.TestCase):
 
     def test_untitled_test_case(self):
         wd = self.wd
+        #Open home pagew
         wd.get("http://localhost/addressbook/")
+        #Login
         wd.find_element_by_name("user").send_keys(Keys.DOWN)
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
@@ -21,8 +23,11 @@ class UntitledTestCase(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        #Open groupe page
         wd.find_element_by_link_text("groups").click()
+        #init group creation
         wd.find_element_by_name("new").click()
+        #Fill group firm
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys("sadasd")
@@ -32,12 +37,13 @@ class UntitledTestCase(unittest.TestCase):
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys("asfsafasfasf")
+        #Submit
         wd.find_element_by_name("submit").click()
+        # return groups page
         wd.find_element_by_link_text("group page").click()
         wd.find_element_by_link_text("groups").click()
+        #logout
         wd.find_element_by_link_text("Logout").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
 
     def is_element_present(self, how, what):
         try:
